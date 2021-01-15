@@ -97,7 +97,7 @@ def _get_map_of_algorithms():
     if LooseVersion(sklearn_version) < LooseVersion("0.22"):
         mapping['logistic'] = [[(logistic_module, _patched_log_reg_path_func_name, daal_optimized_logistic_path), None]]
     else:
-        mapping['log_reg'] = [[(linear_model_module, 'LogisticRegression', LogisticRegression_daal4py), None]]
+        mapping['logistic'] = [[(linear_model_module, 'LogisticRegression', LogisticRegression_daal4py), None]]
     if daal_check_version((2021,'P', 200)):
         mapping['roc_auc_score'] = [[(metrics, 'roc_auc_score', _daal_roc_auc_score), None]]
     return mapping
